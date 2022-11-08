@@ -1,4 +1,4 @@
-// 2
+// Task 2
 true && true                        // true, (true);
 false || true                       // true, (true);
 true && 'false'                     // 'false', (true);

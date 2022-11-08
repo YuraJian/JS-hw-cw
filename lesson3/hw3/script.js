@@ -1,4 +1,5 @@
-// 1
+// Task 1
+
 // const a = 5;
 // const b = 10;
 
@@ -10,7 +11,8 @@
 
 // console.log(`multiplication`, a * b);
 
-//3
+// Task 3
+
 // const c = Number(prompt('Enter first value: '));
 // const d = Number(prompt('Enter second value: '));
 
@@ -22,10 +24,36 @@
 //     alert(`Yea, sure ${c} = ${d}`);
 // }
 
-// 4
+// Task 4
 
+// const firstValue = Number(prompt("Enter your first value: "));
+// const secondValue = Number(prompt("Enter your second value: "));
+// const chooseOperator = Number(prompt("You can choose on of this operators: 1 its /, 2 its *, 3 its -, 4 its +"));
 
-// 5
+// switch (chooseOperator) {
+//   case 1:
+//     const result1 = firstValue / secondValue;
+//     alert(result1);
+//     break;
+//   case 2:
+//     const result2 = firstValue * secondValue;
+//     alert(result2);
+//     break;
+//   case 3:
+//     const result3 = firstValue - secondValue;
+//     alert(result3);
+//     break;
+//   case 4:
+//     const result4 = firstValue + secondValue;
+//     alert(result4);
+//     break;
+
+//     default:
+//         alert('We need some values for this operation!');
+// }
+
+// Task 5
+
 // const visitorAge = Number(prompt('How old are you?'));
 // const isWithParents = confirm('Are you with parents?');
 
