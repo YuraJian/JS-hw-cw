@@ -26,31 +26,31 @@
 
 // Task 4
 
-// const firstValue = Number(prompt("Enter your first value: "));
-// const secondValue = Number(prompt("Enter your second value: "));
-// const chooseOperator = Number(prompt("You can choose on of this operators: 1 its /, 2 its *, 3 its -, 4 its +"));
+const firstValue = Number(prompt("Enter your first value: "));
+const secondValue = Number(prompt("Enter your second value: "));
+const chooseOperator = (prompt("You can choose on of this operators: / * - +"));
 
-// switch (chooseOperator) {
-//   case 1:
-//     const result1 = firstValue / secondValue;
-//     alert(result1);
-//     break;
-//   case 2:
-//     const result2 = firstValue * secondValue;
-//     alert(result2);
-//     break;
-//   case 3:
-//     const result3 = firstValue - secondValue;
-//     alert(result3);
-//     break;
-//   case 4:
-//     const result4 = firstValue + secondValue;
-//     alert(result4);
-//     break;
+switch (chooseOperator) {
+  case '/':
+    const result1 = firstValue / secondValue;
+    alert(result1);
+    break;
+  case '*':
+    const result2 = firstValue * secondValue;
+    alert(result2);
+    break;
+  case '-':
+    const result3 = firstValue - secondValue;
+    alert(result3);
+    break;
+  case '+':
+    const result4 = firstValue + secondValue;
+    alert(result4);
+    break;
 
-//     default:
-//         alert('We need some values for this operation!');
-// }
+    default:
+        alert('We need some values for this operation!');
+}
 
 // Task 5
 
