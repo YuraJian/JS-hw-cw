@@ -28,7 +28,7 @@
 
 const firstValue = Number(prompt("Enter your first value: "));
 const secondValue = Number(prompt("Enter your second value: "));
-const chooseOperator = (prompt("You can choose on of this operators: / * - +"));
+const chooseOperator = (prompt("You can choose on of these operators: / * - +"));
 
 switch (chooseOperator) {
   case '/':
