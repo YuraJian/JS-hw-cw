@@ -26,41 +26,46 @@
 
 // Task 4
 
-const firstValue = Number(prompt("Enter your first value: "));
-const secondValue = Number(prompt("Enter your second value: "));
-const chooseOperator = (prompt("You can choose on of these operators: / * - +"));
+// const firstValue = Number(prompt("Enter your first value: "));
+// const secondValue = Number(prompt("Enter your second value: "));
+// const chooseOperator = (prompt("You can choose on of these operators: / * - +"));
 
-switch (chooseOperator) {
-  case '/':
-    const result1 = firstValue / secondValue;
-    alert(result1);
-    break;
-  case '*':
-    const result2 = firstValue * secondValue;
-    alert(result2);
-    break;
-  case '-':
-    const result3 = firstValue - secondValue;
-    alert(result3);
-    break;
-  case '+':
-    const result4 = firstValue + secondValue;
-    alert(result4);
-    break;
+// switch (chooseOperator) {
+//   case '/':
+//     const result1 = firstValue / secondValue;
+//     alert(result1);
+//     break;
+//   case '*':
+//     const result2 = firstValue * secondValue;
+//     alert(result2);
+//     break;
+//   case '-':
+//     const result3 = firstValue - secondValue;
+//     alert(result3);
+//     break;
+//   case '+':
+//     const result4 = firstValue + secondValue;
+//     alert(result4);
+//     break;
 
-    default:
-        alert('We need some values for this operation!');
-}
+//     default:
+//         alert('We need some values for this operation!');
+// }
 
 // Task 5
 
-// const visitorAge = Number(prompt('How old are you?'));
-// const isWithParents = confirm('Are you with parents?');
+const visitorAge = Number(prompt('How old are you?'));
 
-// if (visitorAge >= 18 && visitorAge <= 60) {
-//     alert('Entrance to the roller coaster is available');
-// } else if (visitorAge >= 12 && visitorAge <= 80 && isWithParents) {
-//     alert('Entrance to the roller coaster open for you');
-// } else {
-//     alert('Entrance to the roller coaster is not available');
-// }
+if (visitorAge >= 18 && visitorAge <= 60) {
+    alert('Entrance to the roller coaster is available');
+} else 
+if (visitorAge >= 12 && visitorAge <= 80) {
+    const isWithParents = confirm('Are you with parents?');
+  if (isWithParents == true) {
+    alert('Entrance to the roller coaster open for you');
+  } else {
+    alert('Entrance to the roller coaster is not available');
+  }
+}  else {
+    alert('Entrance to the roller coaster is not available');
+}
