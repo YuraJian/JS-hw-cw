@@ -1,10 +1,7 @@
 // Task 1
 
 function isEqual(a, b) {
-  if (a === b) {
-    return true;
-  }
-  return false;
+  return (a === b);
 }
 
 console.log("isEqual", isEqual(4, 5));
@@ -18,9 +15,7 @@ console.log("isEqual2", isEqual2(5, 6));
 console.log("isEqual2", isEqual2(6, 6));
 
 // arrow func
-const isEqual3 = (a, b) => {
-  return a === b ? true : false;
-};
+const isEqual3 = (a, b) => (a === b);
 
 console.log("isEqual3", isEqual3(6, 7));
 console.log("isEqual3", isEqual3(7, 7));
