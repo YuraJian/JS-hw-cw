@@ -15,7 +15,7 @@ console.log("isEqual2", isEqual2(5, 6));
 console.log("isEqual2", isEqual2(6, 6));
 
 // arrow func
-const isEqual3 = (a, b) => a === b;
+const isEqual3 = (a, b) => (a === b);
 
 console.log("isEqual3", isEqual3(6, 7));
 console.log("isEqual3", isEqual3(7, 7));
