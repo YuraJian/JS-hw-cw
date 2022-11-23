@@ -1,5 +1,48 @@
 // Task 1
 
+for (let i = 1; i <= 10; i++) console.log(`i = ${i}`);
+
+let i = 1;
+
+console.log('');
+
+while(i <= 10) {
+    console.log(`i = ${i}`);
+    i++;
+};
+
+console.log('');
+
+i = 1;
+do {
+    console.log(`i = ${i}`);
+    i++;
+} while(i <= 10);
+
+console.log('');
+
+for (let i = 20; i >= 10; i--) console.log(`i = ${i}`);
+
+console.log('');
+
+i = 21;
+while(i > 10) {
+    --i;
+    console.log(`i = ${i}`);
+};
+
+console.log('');
+
+i = 20;
+do {
+    console.log(`i = ${i}`);
+    i--;
+} while(i > 9);
+
+console.log('');
+
+// Task 2
+
 
 
 // Task 3
@@ -55,4 +98,4 @@ const authorize = () => {
   } while (true);
 };
 
-authorize();
+// authorize();
