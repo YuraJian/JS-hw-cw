@@ -1,5 +1,5 @@
 // Task 1
-
+console.log('Task 1');
 for (let i = 1; i <= 10; i++) console.log(`i = ${i}`);
 
 let i = 1;
@@ -40,10 +40,24 @@ do {
 } while(i > 9);
 
 console.log('');
+console.log('Task 2');
 
 // Task 2
 
+const natural = (start, finish) => {
+    mark:
+    for (i = start; i <= finish; i++) {
+        if(i == 1) continue;
+        for (j = 2; j < i; j++) {
+            if(i % j == 0) continue mark;
+        }
+        console.log(i);
+    }
+}
 
+natural(1, 10);
+console.log('');
+natural(20, 100);
 
 // Task 3
 
@@ -54,7 +68,6 @@ const authorize = () => {
   let userLogin;
   let userPassword;
   let i = 3;
-  let isAuthSuccess = false;
 
   start: do {
 
