@@ -2,11 +2,11 @@ const actionButton = document.querySelector("button");
 actionButton.addEventListener("click", library);
 
 const books = [
-  { id: 1, author: "John", name: "Born some", isReading: 5, startCountBooks: 5 },
-  { id: 2, author: "A", name: "Hello", isReading: 5, startCountBooks: 5 },
-  { id: 3, author: "A", name: "D", isReading: 5, startCountBooks: 5 },
-  { id: 4, author: "A", name: "E", isReading: 5, startCountBooks: 5 },
-  { id: 5, author: "A", name: "F", isReading: 5, startCountBooks: 5 },
+  { id: 1, author: "Joanne Rowling", name: "Harry potter", isReading: 5, startCountBooks: 5 },
+  { id: 2, author: "Наполеон Гілл", name: "Думай і багатій", isReading: 5, startCountBooks: 5 },
+  { id: 3, author: "Джон Кехо", name: "Підсвідомості все підвладне", isReading: 5, startCountBooks: 5 },
+  { id: 4, author: "Шевченко", name: "Кобзар", isReading: 5, startCountBooks: 5 },
+  { id: 5, author: "Ліна Костенко", name: "Маруся чурай", isReading: 5, startCountBooks: 5 },
 ];
 
 function library() {
