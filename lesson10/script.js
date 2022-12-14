@@ -16,12 +16,14 @@ function library() {
   Повернути книгу - return
   Додати книгу - add`);
 
+  // Валідація якщо нажали відміна
   if (choiceAction === null) {
     alert('Допобачення!');
 
     return;
   }
 
+  // Валідація якщо строка пуста
   if (!choiceAction) {
     alert('Ви не ввели дію яку хотіли б виконати. \nСпробуйте знову!');
 
@@ -59,26 +61,23 @@ const takeBook = () => {
 
   const selectBook = books.find((book) => book.name === selectBookName);
 
+  // Валідація якщо користувач нічого не ввів
   if(!selectBookName) {
     alert('Ви не ввели назву книги!');
 
     return;
   };
 
+  // Валідація якщо не знайдено співпадінь
   if (!selectBook) {
     alert('Нажаль такої книги немає в базі данних. Ви можете додати цю книгу самостійно!');
     
     return;
   };
 
-  if (selectBook.isReading === true) {
-    alert('Вибачте, але цю книгу читає хтось інший!');
-
-    return;
-  };
-
   selectBook.isReading -= 1;
 
+  // Валідація якщо книги закінчились
   if (selectBook.isReading < 0) {
     alert('Нажаль більше немає доступних книг для читання!');
 
@@ -87,6 +86,7 @@ const takeBook = () => {
 
   alert(` Ви успішно взяли книгу, ID вашої книги: ${selectBook.id}`);
   alert(`Кількість доступних книг для читання ${selectBook.isReading}`)
+  console.log('books', books);
 };
 
 const returnBook = () => {
@@ -94,12 +94,14 @@ const returnBook = () => {
 
   const isTrueID = books.find((book) => book.id === enterID);
 
+  // Валідація якщо користувач нічого не ввів
   if (!enterID) {
     alert('Ви не ввели номер ID!');
 
     return;
   };
 
+  // Валідація якщо користувач хотів повернути книгу, яку він не брав
   if (isTrueID.isReading === false) {
     alert(`Ви не брали книгу з ID: ${enterID}`);
 
@@ -108,6 +110,7 @@ const returnBook = () => {
 
   isTrueID.isReading += 1;
 
+  // Валідація якщо користувач хоче повернути лишню ніж
   if (isTrueID.isReading > isTrueID.startCountBooks) {
     alert('В бібліотеці вже є відповідна кількість даних книг, можливо ви принесли свою книгу');
 
@@ -115,6 +118,7 @@ const returnBook = () => {
   }
 
   alert('Ви успішно повернули книгу!');
+  console.log('books', books);
 };
 
 const addBook = () => {
@@ -124,12 +128,14 @@ const addBook = () => {
   let yourAuthorName = prompt(`Введіть ім'я автора цієї книги!`);
   let bookCount = Number(prompt('Скільки екземлярів даної книги ви можете пожертвувати біліотеці?'))
 
+  // Валідація якщо користувач нічого не ввів
   if (!yourBookName || !yourAuthorName) {
     alert('Ви не ввели дані автора');
 
     return;
   };
 
+  // Валідація якщо користувач вказав невірну кількість книг
   if (!bookCount || bookCount === 0) {
     alert('Невірні кількість книг');
 
@@ -143,6 +149,9 @@ const addBook = () => {
 
   const spaceIndex = yourAuthorName.indexOf(' ');
 
+  // Валідація імені автора в двох варіантах:
+  // 1. Якщо ім'я автора складається з однієї частини, приклад (Юра)
+  // 2. Якщо з двох частин, приклад (Юра Юра)
   if (spaceIndex === -1) {
     yourAuthorName = yourAuthorName[0].toUpperCase() + yourAuthorName.slice(1).toLowerCase();
   } else {
@@ -153,47 +162,49 @@ const addBook = () => {
   }
 
   const filterBookName = books
-  .find((book) => book.name === yourBookName);
+  .find((book) => book.name == yourBookName);
 
-  if (yourBookName === filterBookName) {
-    alert('Така книга вже є в біліотеці!');
+  // Валідація для того щоб визначити чи є книга з такою назвою у бібліотеці
+  if (!filterBookName) {
+    newObj.id = ID;
+    newObj.name = yourBookName;
+    newObj.author = yourAuthorName;
+    newObj.isReading = bookCount;
+    newObj.startCountBooks = bookCount;
+
+    books.push(newObj);
+
+    alert('Ви успішно додали книгу!')
+
+    console.log('books', books);
+  } else {
+    alert('Книга з такою назвою вже є в бібліотеці!');
 
     return;
   }
-
-  newObj.id = ID;
-  newObj.name = yourBookName;
-  newObj.author = yourAuthorName;
-  newObj.isReading = bookCount;
-  newObj.startCountBooks = bookCount;
-
-  books.push(newObj);
-
-  alert('ВИ успішно додали книгу!')
-
-  console.log('books', books);
 };
 
 const generateID = () => {
   let stop = true;
   let randomID;
 
-  // let stop = false;    Це мій варіант, але так і не вийшло порівняти, в ньому ще були 2 аргументи!
+  // let stop = false;    //Це мій варіант, але так і не вийшло порівняти, в ньому ще були 2 аргументи!
 
   // do {
   //   const randomID = Math.random() * (max - min + 1);
   //   const isSameID = books.find((book) => book.id == randomID);
 
-  //   if(randomID == isSameID) {
+  //   if(!isSameID) {
+  //     stop = true;
+  //   } else {
   //     continue;
   //   }
-    
-  //   return Math.floor(randomID);
 
+  //   return Math.floor(randomID);
   // } while (!stop);
 
   do {
-    randomID = Math.ceil(Math.random() * 1000);
+    randomID = Math.ceil(Math.random() * 10);
     stop = Boolean(books.find((book) => book.id === randomID));
   } while(stop);
 
