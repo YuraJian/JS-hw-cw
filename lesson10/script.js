@@ -50,6 +50,7 @@ function library() {
   };
 };
 
+// Функція щоб взяти книгу
 const takeBook = () => {
   const filterBook = books
   .map((book) => book.name)
@@ -89,6 +90,7 @@ const takeBook = () => {
   console.log('books', books);
 };
 
+// Функція щоб повернути книгу
 const returnBook = () => {
   let enterID = Number(prompt('Введіть ID книги яку ви хочете повернути!'));
 
@@ -121,6 +123,7 @@ const returnBook = () => {
   console.log('books', books);
 };
 
+// Функція щоб додати книгу
 const addBook = () => {
   const newObj = {};
 
@@ -184,6 +187,7 @@ const addBook = () => {
   }
 };
 
+// Функція щоб згенерувати ID
 const generateID = () => {
   let stop = true;
   let randomID;
