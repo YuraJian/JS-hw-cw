@@ -2,7 +2,7 @@ const actionButton = document.querySelector("button");
 actionButton.addEventListener("click", library);
 
 const books = [
-  { id: 1, author: "Joanne Rowling", name: "Harry potter", isReading: 5, startCountBooks: 5 },
+  { id: 1, author: "Joanne Rowling", name: "Harry potter", isReading: 2, startCountBooks: 2 },
   { id: 2, author: "Наполеон Гілл", name: "Думай і багатій", isReading: 5, startCountBooks: 5 },
   { id: 3, author: "Джон Кехо", name: "Підсвідомості все підвладне", isReading: 5, startCountBooks: 5 },
   { id: 4, author: "Шевченко", name: "Кобзар", isReading: 5, startCountBooks: 5 },
@@ -76,14 +76,16 @@ const takeBook = () => {
     return;
   };
 
-  selectBook.isReading -= 1;
-
   // Валідація якщо книги закінчились
-  if (selectBook.isReading < 0) {
+  if (selectBook.isReading == 0) {
     alert('Нажаль більше немає доступних книг для читання!');
+
+    console.log('books', books);
 
     return;
   }
+
+  selectBook.isReading -= 1;
 
   alert(` Ви успішно взяли книгу, ID вашої книги: ${selectBook.id}`);
   alert(`Кількість доступних книг для читання ${selectBook.isReading}`)
@@ -110,14 +112,15 @@ const returnBook = () => {
     return;
   };
 
-  isTrueID.isReading += 1;
-
   // Валідація якщо користувач хоче повернути лишню ніж
-  if (isTrueID.isReading > isTrueID.startCountBooks) {
+  if (isTrueID.isReading >= isTrueID.startCountBooks) {
     alert('В бібліотеці вже є відповідна кількість даних книг, можливо ви принесли свою книгу');
 
+    console.log('books', books)
     return;
   }
+  
+  isTrueID.isReading += 1;
 
   alert('Ви успішно повернули книгу!');
   console.log('books', books);
@@ -208,7 +211,7 @@ const generateID = () => {
   // } while (!stop);
 
   do {
-    randomID = Math.ceil(Math.random() * 10);
+    randomID = Math.ceil(Math.random() * 1000);
     stop = Boolean(books.find((book) => book.id === randomID));
   } while(stop);
 
