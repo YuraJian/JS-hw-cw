@@ -54,20 +54,21 @@ const products = [
 const productCards = (arr) => {
   const container = document.createElement("div");
 
-  const productsCardsContainer = arr.map((item) => {
-    
+  const productsCardsContainer = arr
+  .map((item) => {
     const fullCard = `
     <h1>${item.brand}</h1>
     <h2>${item.name}</h2>
     <ul>
-      ${item.properties.map(
-        (item) => `<li>${item}</li>`
-      )} 
+      ${item.properties
+        .map((item) => `<li>${item}</li>`)
+        .join('')} 
     </ul>
     `;
 
     return fullCard;
-  });
+  })
+  .join('');
 
   container.innerHTML = productsCardsContainer;
 
