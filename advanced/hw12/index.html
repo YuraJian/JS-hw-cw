@@ -12,11 +12,20 @@
             margin: 0;
         }
 
-        .position {
+        .tooltip {
+            max-width: 600px;
+            height: 30px;
+            font-size: 18px;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            padding: 5px;
+            border: 1 px solid black;
+            border-radius: 5px;
+        }
+
+        .position {
+            position: relative;
+            top: 300px;
+            left: 500px;
         }
 
         .button {
@@ -38,8 +47,8 @@
     </style>
 </head>
 <body>
-    <div class="position">
-        <button id="button" class="button">I have a tooltip =)</button>
+    <div class="position red">
+        <button id="button" class="button yellow">I have a tooltip =)</button>
     </div>  
     <script src="./script.js"></script>
 </body>
