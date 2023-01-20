@@ -31,8 +31,8 @@ const createTooltip = (element, tooltipText) => {
   // let top = (target.offsetHeight - tooltipContainer.offsetHeight) / 2 + targetCoords.top - 60;
   let top = targetCoords.top - 60;
 
-  tooltipContainer.style.left = left + "px";
-  tooltipContainer.style.top = top + "px";
+  tooltipContainer.style.left = `${left}px`;
+  tooltipContainer.style.top = `${top}px`;
 };
 
 createTooltip("button", `Hello, i'm tooltip. I can change my background`);
