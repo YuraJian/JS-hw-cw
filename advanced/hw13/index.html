@@ -5,8 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        #images {
+            margin-bottom: 25px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .style {
+            height: 30px;
+            width: 90px;
+            border-radius: 12px;
+            background-color: rgb(233, 37, 37);
+            transition: 300ms;
+            color: grey;
+
+            font-size: 16px;
+        }
+
+        .style:hover {
+            cursor: pointer;
+            background-color: firebrick;
+            color: rgb(53, 47, 47);
+        }
+    </style>
 </head>
 <body>
+    <div id="images">
+        <img src="./imgs/firstImage.jpg" alt="firstImage">
+        <img src="./imgs/secondImage.jpg" alt="secondImage" class="hidden ">        
+        <img src="./imgs/thirdImage.jpg" alt="thirdImage" class="hidden ">
+        <img src="./imgs/fourthImage.jpg" alt="fourthImage" class="hidden ">
+    </div>
+    <div id="buttons">
+        <button id="prev" class="style">Prev</button>
+        <button id="next" class="style">Next</button>
+    </div>
+
     <script src="./script.js"></script>
 </body>
 </html>
