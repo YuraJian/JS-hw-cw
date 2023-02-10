@@ -15,7 +15,8 @@ const getRandomBG = () => {
 
 const createTooltip = (element, tooltipText) => {
   const target = document.getElementById(`${element}`);
-  const targetCoords = target.getBoundingClientRect();
+  const targetCoords = target.
+  getBoundingClientRect();
   // console.log(targetCoords);
 
   const tooltipContainer = document.createElement("div");
