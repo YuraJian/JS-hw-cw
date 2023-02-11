@@ -41,6 +41,12 @@ const createInputs = () => {
       const input = document.createElement('input');
       const formContainer = document.createElement('div');
 
+      if (element.name == 'login') {
+        input.id = 'login';
+      } else {
+        input.id = 'password';
+      }
+
       label.innerText = element.label;
       label.setAttribute('for', element.name);
 
@@ -68,6 +74,7 @@ const createSelectElement = () => {
   label.innerText = formConfig[2].label;
 
   select.setAttribute('name', formConfig[2].name);
+  select.id = 'select';
 
   selectContainer.append(label, select);
 
@@ -114,6 +121,18 @@ const form = document.getElementById('form-submit');
 
 const handleSubmit = (event) => {
   event.preventDefault();
+
+  const loginValue = document.getElementById('login');
+  const passwordValue = document.getElementById('password');
+  const selectValue = document.getElementById('select');
+
+  const userData = {
+    login: loginValue.value,
+    password: passwordValue.value,
+    select: selectValue.value,
+  };
+
+  console.log(userData);
 };
 
 form.addEventListener('submit', handleSubmit);
