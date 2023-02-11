@@ -34,7 +34,7 @@ const formConfig = [
 const body = document.body;
 
 // this function create some inputs with text in html
-const createForm = () => {
+const createInputs = () => {
   const mapArray = formConfig.map((element) => {
     if (element.name == 'login' || element.name == 'age') {
       const label = document.createElement('label');
@@ -54,7 +54,7 @@ const createForm = () => {
   }) ; 
 };
 
-createForm();
+// createInputs();
 
 // this function create some select element in html
 const createSelectElement = () => {
@@ -79,8 +79,41 @@ const createSelectElement = () => {
 
     select.append(option);
 
-    console.log(formConfig[2].options[i].text)
+    // console.log(formConfig[2].options[i].text)
   };
 };
 
-createSelectElement();
+// createSelectElement();
+
+// This function collects the form into a heap;
+const createForm = () => {
+  const form = document.createElement('form');
+  const button = document.createElement('button');
+  const buttonContainer = document.createElement('div');
+
+  buttonContainer.append(button);
+
+  button.innerText = 'Submit';
+  button.setAttribute('type', 'submit');
+
+  createInputs();
+  createSelectElement();
+
+  form.append(buttonContainer);
+  form.id = 'form-submit';
+
+  // console.log(form);
+
+  body.append(form);
+};
+
+createForm();
+
+// this part of code handle submit
+const form = document.getElementById('form-submit');
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+};
+
+form.addEventListener('submit', handleSubmit);
