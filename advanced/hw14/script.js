@@ -116,7 +116,7 @@ const createForm = () => {
 
 createForm();
 
-// this part of code handle submit
+// this part of code handle user data
 const form = document.getElementById('form-submit');
 
 const handleSubmit = (event) => {
