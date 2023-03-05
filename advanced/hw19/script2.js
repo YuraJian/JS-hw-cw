@@ -6,6 +6,15 @@ const characterContainer = document.getElementById("character_container");
 
 const PEOPLE_URL = "https://swapi.dev/api/people/";
 
+const handleRequestErrors = async (response) => {
+  if (!response.ok) {
+    let { error } = await response.json();
+    throw new Error(response.status);
+  }
+
+  return response;
+};
+
 const getAllMovies = async (response) => {
   const { films } = response;
 
@@ -20,12 +29,13 @@ const getAllMovies = async (response) => {
   renderMoviesList(filmsResult);
 };
 
-const renderMoviesList = (response) => {
-  const mapResponse = response.map((film) => {
+const renderMoviesList = async (response) => {
+  const mapResponse = response.forEach((film) => {
     const { title } = film;
 
     const filmTitle = document.createElement("h2");
     filmTitle.innerText = title;
+
     characterContainer.append(filmTitle);
   });
 };
@@ -45,18 +55,24 @@ const renderCharacter = (response) => {
   containerAll.append(characterContainer);
 
   moviesButton.addEventListener("click", () => {
-    renderMoviesList(getAllMovies);
+    getAllMovies(response);
   });
 };
 
 const getPeopleByID = async (id) => {
-  const request = await fetch(`${PEOPLE_URL}${id}`);
-  const result = await request.json();
+  try {
+    const request = await handleRequestErrors(await fetch(`${PEOPLE_URL}${id}`));
+    const result = await request.json();
 
-  //   console.log("result", result);
+    await renderCharacter(result);
+  } catch (err) {
+    const status = Number(err.message);
+    if (status === 404) {
+      alert(`${status}: Character Not Found`);
+    }
+  }
 
-  renderCharacter(result);
-  getAllMovies(result);
+  // console.log("result", result);
 };
 
 const handleSubmit = (event) => {
@@ -79,3 +95,5 @@ const handleSubmit = (event) => {
 };
 
 form.addEventListener("submit", handleSubmit);
+
+console.log("greeting", "hello");
