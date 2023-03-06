@@ -61,7 +61,9 @@ const renderCharacter = (response) => {
 
 const getPeopleByID = async (id) => {
   try {
-    const request = await handleRequestErrors(await fetch(`${PEOPLE_URL}${id}`));
+    const request = await handleRequestErrors(
+      await fetch(`${PEOPLE_URL}${id}`)
+    );
     const result = await request.json();
 
     await renderCharacter(result);
@@ -69,6 +71,8 @@ const getPeopleByID = async (id) => {
     const status = Number(err.message);
     if (status === 404) {
       alert(`${status}: Character Not Found`);
+    } else {
+      alert("Error");
     }
   }
 
@@ -95,5 +99,3 @@ const handleSubmit = (event) => {
 };
 
 form.addEventListener("submit", handleSubmit);
-
-console.log("greeting", "hello");
